@@ -1,9 +1,12 @@
 import logo from "../../resources/img/logo_light.png";
-import './Signup.css';
-import React from "react";
-import {Form} from "react-router-dom";
+import React, {useContext} from "react";
+import {Form, useNavigate} from "react-router-dom";
+import {UserContext} from "../../App";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const { setName } = useContext(UserContext);
+
   return (<>
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -17,7 +20,7 @@ export default function Signup() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <Form className="space-y-6" action="/timesheet"  method="POST">
+        <Form className="space-y-6" action="/timesheet"  method="post">
           <div>
             <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900 text-left">
               Name
@@ -30,6 +33,7 @@ export default function Signup() {
                 autoComplete="firstname"
                 required
                 className="text-input mr-1.5"
+                onChange={e => setName && setName(e.target.value)}
               />
               <input
                 id="lastname"
@@ -100,6 +104,18 @@ export default function Signup() {
                 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Sign up
+            </button>
+            <p className="my-1 text-center text-base leading-9 tracking-tight text-gray-900">
+              or
+            </p>
+            <button
+              type="submit"
+              className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold
+              leading-6 text-indigo-600 shadow-sm hover:bg-indigo-200 focus-visible:outline focus-visible:outline-2
+              focus-visible:outline-offset-2 focus-visible:outline-indigo-600 my-2 border-2"
+              onClick={() => navigate("/login")}
+            >
+              Log in
             </button>
           </div>
         </Form>
