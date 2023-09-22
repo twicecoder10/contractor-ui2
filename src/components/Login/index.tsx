@@ -19,7 +19,7 @@ export default function Login(){
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <Form className="space-y-6" action="/timesheet"  method="post">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 text-left">
               Email address
             </label>
             <div className="mt-2">
@@ -36,7 +36,7 @@ export default function Login(){
 
           <div>
             <div className="flex items-center justify-between">
-              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900 text-left">
                 Password
               </label>
               <div className="text-sm">
